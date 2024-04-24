@@ -1,0 +1,13 @@
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\bin\Debug\net8.0\Commerce.Core.deps.json
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\bin\Debug\net8.0\Commerce.Core.dll
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\bin\Debug\net8.0\Commerce.Core.pdb
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.csproj.AssemblyReference.cache
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.AssemblyInfoInputs.cache
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.AssemblyInfo.cs
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.csproj.CoreCompileInputs.cache
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.sourcelink.json
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.dll
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\refint\Commerce.Core.dll
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\Commerce.Core.pdb
+D:\07_CMS ASP\E_Commerce\src\Commerce.Core\obj\Debug\net8.0\ref\Commerce.Core.dll
