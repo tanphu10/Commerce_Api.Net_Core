@@ -1,5 +1,6 @@
 using AirBnb.Data.SeedWorks;
 using Commerce.Api;
+using Commerce.Api.Authorization;
 using Commerce.Api.Service;
 using Commerce.Core.ConfigOptions;
 using Commerce.Core.Domain.Identity;
@@ -9,6 +10,7 @@ using Commerce.Data;
 using Commerce.Data.Repositories;
 using Commerce.Data.SeedWorks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -22,6 +24,8 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 // Add services to the container.
 //Config DB Context and ASP.NET Core Identity
 builder.Services.AddDbContext<CommerceContext>(options =>
