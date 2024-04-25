@@ -10,7 +10,7 @@ using System.Transactions;
 
 namespace Commerce.Core.Domain.Content
 {
-    [Table("Translations")]
+    [Table("Transactions")]
     public class Transaction
     {
         [Key]

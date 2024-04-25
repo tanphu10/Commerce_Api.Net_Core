@@ -12,9 +12,9 @@ namespace Commerce.Core.Domain.Content
     public class ProductImage
     {
         [Key]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
-        public int ProductId { get; set; }
+        public Guid ProductId { get; set; }
 
         public string ImagePath { get; set; }
 
@@ -28,6 +28,5 @@ namespace Commerce.Core.Domain.Content
 
         public long FileSize { get; set; }
 
-        public Product Product { get; set; }
     }
 }

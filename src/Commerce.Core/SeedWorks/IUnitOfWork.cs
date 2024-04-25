@@ -11,6 +11,8 @@ namespace Commerce.Core.SeedWorks
     {
 
         IProductRepository Products { get; }
+        ICategoryRepository Categories { get; }
+
 
         Task<int> CompleteAsync();
 

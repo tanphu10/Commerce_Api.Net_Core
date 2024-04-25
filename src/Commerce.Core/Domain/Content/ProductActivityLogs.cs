@@ -13,16 +13,18 @@ namespace Commerce.Core.Domain.Content
     {
         [Key]
         public Guid Id { get; set; }
-        public Guid RoomId { get; set; }
+        public Guid ProductId { get; set; }
 
-        public Status FromStatus { set; get; }
+        public PostStatus FromStatus { set; get; }
 
-        public Status ToStatus { set; get; }
+        public PostStatus ToStatus { set; get; }
 
         public DateTime DateCreated { get; set; }
 
         [MaxLength(500)]
         public string? Note { set; get; }
+        public string? UserName { set; get; }
+
 
         public Guid UserId { get; set; }
 

@@ -1,5 +1,7 @@
 using AirBnb.Data.SeedWorks;
 using Commerce.Api;
+using Commerce.Api.Service;
+using Commerce.Core.ConfigOptions;
 using Commerce.Core.Domain.Identity;
 using Commerce.Core.Models.Content;
 using Commerce.Core.SeedWorks;
@@ -66,11 +68,14 @@ foreach (var service in services)
         builder.Services.Add(new ServiceDescriptor(directInterface, service, ServiceLifetime.Scoped));
     }
 }
-
+//Authen and author
+builder.Services.Configure<JwtTokenSettings>(configuration.GetSection("JwtTokenSettings"));
 builder.Services.AddAutoMapper(typeof(CreateUpdateProductRequest));
+
 builder.Services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
 builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
 builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+builder.Services.AddScoped<ITokenService, TokenService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -113,22 +118,23 @@ builder.Services.AddSwaggerGen(c =>
     c.ParameterFilter<SwaggerNullableParameterFilter>();
 
 });
-//builder.Services.AddAuthentication(o =>
-//{
-//    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(cfg =>
-//{
-//    cfg.RequireHttpsMetadata = false;
-//    cfg.SaveToken = true;
 
-//    cfg.TokenValidationParameters = new TokenValidationParameters
-//    {
-//        ValidIssuer = configuration["JwtTokenSettings:Issuer"],
-//        ValidAudience = configuration["JwtTokenSettings:Issuer"],
-//        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
-//    };
-//});
+builder.Services.AddAuthentication(o =>
+{
+    o.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    o.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(cfg =>
+{
+    cfg.RequireHttpsMetadata = false;
+    cfg.SaveToken = true;
+
+    cfg.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = configuration["JwtTokenSettings:Issuer"],
+        ValidAudience = configuration["JwtTokenSettings:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtTokenSettings:Key"]))
+    };
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -157,10 +163,8 @@ app.UseStaticFiles();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
-
-
 app.UseAuthorization();
-
 app.MapControllers();
+app.MigrateDatabase();
 
 app.Run();

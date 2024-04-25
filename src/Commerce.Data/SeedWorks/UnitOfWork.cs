@@ -16,9 +16,13 @@ namespace AirBnb.Data.SeedWorks
         {
             _context = context;
             _userManager = userManager;
-            Products = new ProductRepository(context, mapper);
+            Products = new ProductRepository(context, mapper, userManager);
+            Categories = new CategoryRepository(context, mapper);
         }
         public IProductRepository Products { get; set; }
+        public ICategoryRepository Categories { get; set; }
+
+
         public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();

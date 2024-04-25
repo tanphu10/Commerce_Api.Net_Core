@@ -31,5 +31,9 @@ namespace Commerce.Core.Domain.Content
         [MaxLength(160)]
         public string? SeoDescription { set; get; }
         public int SortOrder { set; get; }
+        public string SeoTitle { set; get; }
+        public string LanguageId { set; get; }
+        public string SeoAlias { set; get; }
+
     }
 }

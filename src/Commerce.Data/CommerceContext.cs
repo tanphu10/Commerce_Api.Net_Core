@@ -12,18 +12,17 @@ namespace Commerce.Data
         public CommerceContext(DbContextOptions options) : base(options)
         {
         }
+        public DbSet<Cart> Carts { set; get; }
+
         public DbSet<Product> Products { set; get; }
         public DbSet<Category> Categories { set; get; }
-        public DbSet<CategoryTranslation> CategoryTranslations { set; get; }
+      
         public DbSet<Contact> Contacts { set; get; }
-        public DbSet<Language> Languages { set; get; }
         public DbSet<Order> Orders { set; get; }
         public DbSet<OrderDetail> OrderDetails { set; get; }
         public DbSet<ProductActivityLog> ProductActivityLogs { set; get; }
         public DbSet<ProductImage> ProductImages { set; get; }
         public DbSet<ProductInCategory> ProductInCategorys { set; get; }
-        public DbSet<ProductTranslation> ProductTranslations { set; get; }
-
         public DbSet<Promotion> Promotions { set; get; }
         public DbSet<Slide> Slides { set; get; }
         public DbSet<Transaction> Transactions { set; get; }
